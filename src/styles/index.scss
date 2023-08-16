@@ -1,0 +1,28 @@
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  #__next{
+    #main-page{
+      min-height: 400px;
+      .pages{
+        min-height:500px;
+        .image-block{
+          row-gap:50px;
+          img{
+            border-radius: 10%;
+            border:2px solid olive;
+          }
+        }
+      }
+    }
+    footer{
+      background-color: mediumaquamarine;
+      color:whitesmoke;
+      min-height:300px;
+      margin-top:100px;
+      a{
+        color:black;
+        text-decoration: none;
+      }
+    }
+  }
+}
