@@ -25,7 +25,7 @@ export default function MainPageNavbar() {
         <Form className="d-flex" onSubmit={handleSubmit}>
           <Form.Control
             type="text"
-            placeholder="Search"
+            placeholder="Recipe"
             className="me-2"
             aria-label="Query"
             onChange={(e) => setRecipe(e.target.value)}

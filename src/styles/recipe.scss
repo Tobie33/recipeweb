@@ -1,0 +1,11 @@
+#recipe-card{
+  .carousel{
+    width:70%;
+    border: 5px solid olive;
+    background-color: beige;
+    border-radius:25px;
+    .carousel-inner{
+      padding: 0 125px;
+    }
+  }
+}

@@ -1,19 +1,22 @@
 import Image from "next/image"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Head from "next/head"
 
-
-export default function mainPage({ recipes: { results } }) {
+export default function mainPage({recipes: {recipes}}) {
 
   return (
     <main id="main-page">
+    <Head>
+      <title>Main Page</title>
+    </Head>
       <section className="pages text-center d-flex flex-column justify-content-center align-items-center">
         <h1>Spoonacular</h1>
         <h2 className="mt-5">Find all your favourite recipes from around the world</h2>
       </section>
       <section className="pages" id="image-pages">
         <Row className=" image-block d-flex justify-content-center m-0">
-          {results && results.map(recipe => (
+          {recipes && recipes.map(recipe => (
             <Col
               xxl={3}
               xl={4}
@@ -24,7 +27,7 @@ export default function mainPage({ recipes: { results } }) {
             >
               <Image
                 src={recipe.image}
-                width={275}
+                width={250}
                 height={200}
                 alt={recipe.title}
               />
@@ -37,8 +40,9 @@ export default function mainPage({ recipes: { results } }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}`)
+  const res = await fetch(`https://api.spoonacular.com/recipes/random?number=8&apiKey=${process.env.apiKey}`)
   const recipes = await res.json()
+
 
   return {
     props: {

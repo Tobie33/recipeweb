@@ -1,0 +1,22 @@
+#search-and-filter{
+  padding: 0 200px;
+}
+
+@media (min-width:576px) and (max-width: 992px) {
+  #search-and-filter {
+    padding: 0 100px;
+  }
+}
+
+#recipes{
+  padding: 0 100px;
+  row-gap: 40px;
+  .recipe-card {
+    a {
+      text-decoration: none;
+    }
+    .card-header {
+      min-height: 75px;
+    }
+  }
+}
