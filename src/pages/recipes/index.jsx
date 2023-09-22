@@ -208,7 +208,7 @@ export default function recipesSearchPage({recipes :{results}}){
           </Col>
         ))
         }
-        {(!results && !diet && !cuisine) &&
+        {(recipe !== "" && results?.length === 0 && diet === "" && cuisine === "") &&
           <div id="not-found-page" className='text-center'>
             <h3>Results not found! Try again</h3>
           </div>
