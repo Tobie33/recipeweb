@@ -2,6 +2,7 @@ import Image from "next/image"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Head from "next/head"
+import Link from "next/link"
 
 export default function mainPage({recipes: {recipes}}) {
 
@@ -25,12 +26,14 @@ export default function mainPage({recipes: {recipes}}) {
               key={recipe.id}
               className="recipe-block d-flex justify-content-center"
             >
+            <Link href={`recipes/${recipe.id}`}>
               <Image
                 src={recipe.image}
                 width={250}
                 height={200}
                 alt={recipe.title}
               />
+            </Link>
             </Col>
           ))}
         </Row>

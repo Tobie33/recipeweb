@@ -2,6 +2,10 @@ import Image from "next/image"
 import Head from "next/head"
 import Carousel from 'react-bootstrap/Carousel';
 import { useState } from "react";
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { Badge, Stack } from "react-bootstrap";
+
 
 
 export default function recipePage({recipe,instructions}){
@@ -27,7 +31,7 @@ export default function recipePage({recipe,instructions}){
       <Head>
         <title>{recipe?.title}</title>
       </Head>
-      <h1>{recipe?.title}</h1>
+      <h1 id="dish-name" className="mt-3">{recipe?.title}</h1>
       <Image
         src={recipe?.image}
         width={500}
@@ -35,31 +39,39 @@ export default function recipePage({recipe,instructions}){
         alt={recipe?.title}
         className="mt-3"
       />
-      <div id="basic info">
-        <p>Reading in: {recipe?.readyInMinutes} mins</p>
-        <p>Serving size: {recipe?.servings} portions</p>
-        <p>Price per serving: ${recipe?.pricePerServing}</p>
-      </div>
-      <div id="tags" className="d-flex">
-        {recipe?.vegan === true && <h3>Vegan friendly!</h3>}
-        {recipe?.glutenFree === true && <h3>Gluten Free!</h3>}
-        {recipe?.vegetarian === true && <h3>Vegetarian friendly!</h3>}
-        {recipe?.veryHealthy === true && <h3>Healthy Choice!</h3>}
-        {recipe?.cheap === true && <h3>Cheap choice</h3>}
-        {recipe?.veryPopular === true && <h3>Popular Choice</h3>}
-        {recipe?.sustainable === true && <h3>Sustainability</h3>}
-      </div>
+      <Card id="basic-info"  className="mt-5">
+        <ListGroup variant="flush">
+          <ListGroup.Item>Reading in: {recipe?.readyInMinutes} mins</ListGroup.Item>
+          <ListGroup.Item>Serving size: {recipe?.servings} portions</ListGroup.Item>
+          <ListGroup.Item>Price per serving: ${recipe?.pricePerServing}</ListGroup.Item>
+        </ListGroup>
+      </Card>
+      <Stack direction="horizontal" gap={2} id="tags" className="d-flex justify-content-center flex-wrap mt-3">
+        {recipe?.vegan === true && <Badge bg="success">Vegan friendly!</Badge>}
+        {recipe?.glutenFree === true && <Badge bg="success">Gluten Free!</Badge>}
+        {recipe?.vegetarian === true && <Badge bg="success">Vegetarian friendly!</Badge>}
+        {recipe?.veryHealthy === true && <Badge bg="success">Healthy Choice!</Badge>}
+        {recipe?.cheap === true && <Badge bg="success">Cheap choice</Badge>}
+        {recipe?.veryPopular === true && <Badge bg="success">Popular Choice</Badge>}
+        {recipe?.sustainable === true && <Badge bg="success">Sustainability</Badge>}
+      </Stack>
       <Carousel data-bs-theme="dark" indicators={false} activeIndex={index} onSelect={handleSelect} slide={false} interval={null}
-id="steps">
+id="steps" className="my-5">
         {instructions && instructions[0].steps.map((stage,idx) => (
           <Carousel.Item key={idx}>
             <h4>Step {stage.number}</h4>
             <h5>Step: </h5>
             <p>{stage.step}</p>
-            {stage.ingredients.length !== 0 && <h5>Ingredients: </h5>}
-            {stage.ingredients.map((ingredient,ingredientIdx) => (<h6 key={ingredientIdx}>{ingredient.name}</h6>))}
-            {stage.equipment.length !== 0 && <h5>Equipment: </h5>}
-            {stage.equipment.length !== 0 && stage.equipment.map((tool,toolIdx) => (<h6 key={toolIdx}>{tool.name}</h6>))}
+            <div id="ingredients-and-equipments">
+              <div className="ingredients">
+                {stage.ingredients.length !== 0 && <h4>Ingredients: </h4>}
+                {stage.ingredients.map((ingredient,ingredientIdx) => (<h6 key={ingredientIdx}>{ingredient.name}</h6>))}
+              </div>
+              <div className="equipments">
+                {stage.equipment.length !== 0 && <h4>Equipment: </h4>}
+                {stage.equipment.length !== 0 && stage.equipment.map((tool,toolIdx) => (<h6 key={toolIdx}>{tool.name}</h6>))}
+              </div>
+            </div>
           </Carousel.Item>
         ))}
       </Carousel>

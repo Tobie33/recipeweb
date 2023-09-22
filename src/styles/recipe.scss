@@ -1,11 +1,54 @@
-#recipe-card{
-  .carousel{
-    width:70%;
-    border: 5px solid olive;
-    background-color: beige;
-    border-radius:25px;
-    .carousel-inner{
-      padding: 0 125px;
+@media (min-width:576px) and (max-width: 768px) {
+  #recipe-card {
+    #dish-name{
+      font-size: 30px;
+    }
+    img{
+      width:375px;
+      height:250px;
+    }
+    #tags{
+      .badge{
+        padding: 18px;
+        font-size: 1em;
+      }
+    }
+    #ingredients-and-equipments {
+      flex-direction:column;
+      .equipments {
+          margin-top: 10px;
+        }
+    }
+  }
+}
+
+
+#basic-info{
+  width:60%;
+  border: 2px black solid;
+}
+#tags{
+  .badge{
+    padding:25px;
+    font-size: 1.2em;
+  }
+}
+.carousel{
+  width:70%;
+  min-height: 300px;
+  border: 5px solid olive;
+  background-color: beige;
+  border-radius:25px;
+  .carousel-inner{
+    padding: 25px 125px;
+    #ingredients-and-equipments{
+      display:flex;
+      .ingredients {
+        width:50%;
+      }
+      .equipments{
+        width:50%;
+      }
     }
   }
 }
