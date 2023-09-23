@@ -10,7 +10,7 @@ import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 
 
-export default function recipesSearchPage({recipes :{results}}){
+export default function RecipesSearchPage({recipes :{results}}){
 
   const [recipe, setRecipe] = useState(``)
   const [diet, setDietValue] = useState(``)

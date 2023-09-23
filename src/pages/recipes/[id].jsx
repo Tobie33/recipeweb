@@ -6,9 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Badge, Stack } from "react-bootstrap";
 import { useState } from "react";
 
-
-
-export default function recipePage({recipe,instructions}){
+export default function RecipePage({recipe,instructions}){
 
   const [index, setIndex] = useState(0);
 
@@ -85,7 +83,7 @@ id="steps" className="my-5">
 export async function getStaticPaths(){
   return{
     paths:[],
-    fallback:true
+    fallback:false
   }
 }
 

@@ -4,7 +4,7 @@ import Link from "next/link"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-export default function mainPage({recipes: {recipes}}) {
+export default function MainPage({recipes: {recipes}}) {
 
   return (
     <main id="main-page">
