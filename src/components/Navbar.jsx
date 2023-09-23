@@ -1,13 +1,11 @@
+import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav';
-import Link from 'next/link';
 import {useState} from 'react'
-import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
-import NavbarToggle from 'react-bootstrap/NavbarToggle'
-import NavbarBrand from 'react-bootstrap/NavbarBrand'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

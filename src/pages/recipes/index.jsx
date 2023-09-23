@@ -2,33 +2,22 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Row } from 'react-bootstrap';
-import { useState } from 'react';
 import Link from 'next/link';
-import Card from 'react-bootstrap/Card';
 import Image from 'next/image';
-import Col from 'react-bootstrap/Col';
 import Head from 'next/head'
-
-
-
-
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import { useState } from 'react';
 
 
 export default function recipesSearchPage({recipes :{results}}){
-
-  // TBD Show the query from searching on search bar
-  // const searchParams = useSearchParams()
-  // const search = searchParams.get('query')
-
 
   const [recipe, setRecipe] = useState(``)
   const [diet, setDietValue] = useState(``)
   const [cuisine, setCuisineValue] = useState(``)
   const [page,setPage] = useState(1)
 
-
-
-  console.log(diet,cuisine)
+  // The diet and cuisine options since there's no API to grab all the options available
 
   const diets = [
     {name: 'Select a diet', value: 0},
@@ -220,6 +209,7 @@ export default function recipesSearchPage({recipes :{results}}){
 
 export async function getServerSideProps({query:{query, diet, cuisine, page}}) {
 
+  //adjustable to show more or less recipes in each page
   const recipesPerPage = 24
   let number = 0
   number = page ?  recipesPerPage * page : 24
@@ -235,9 +225,4 @@ export async function getServerSideProps({query:{query, diet, cuisine, page}}) {
     }
   }
 
-}
-
-
-recipesSearchPage.getLayout = (page) => {
-  return <SearchPageFilterBar>{page}</SearchPageFilterBar>
 }

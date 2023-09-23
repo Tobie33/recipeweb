@@ -1,0 +1,58 @@
+$footer-search-button-value: 15px;
+$footer-height: 250px;
+$navbar-height: 56px;
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    #footer-links {
+      flex-direction: row;
+    }
+  }
+}
+
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// for all images in every page
+img {
+  border-radius: 10%;
+  border: 2px solid olive;
+  object-fit: cover;
+}
+
+#__next{
+  #main-page{
+    min-height: calc(100vh - $footer-height - $navbar-height);
+    max-width: 100vw;
+    .pages{
+      min-height:500px;
+      .image-block{
+        row-gap:50px;
+      }
+    }
+  }
+  footer{
+    background-color: mediumaquamarine;
+    height: $footer-height;
+    a{
+      color:whitesmoke;
+      text-decoration: none;
+    }
+    #footer-links{
+      font-size: 1.25em;
+      row-gap: 25px;
+    }
+    #footer-search-bar{
+      height:$footer-search-button-value * 4;
+      input::placeholder{
+        font-size:20px;
+      }
+      #search-button{
+        padding:$footer-search-button-value;
+        font-size:20px;
+      }
+    }
+  }
+}

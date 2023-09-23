@@ -1,10 +1,10 @@
 import Link from "next/link"
+import { Form } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
+import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons"
-import { Form } from "react-bootstrap"
-import { useState } from "react"
-import Button from "react-bootstrap/Button"
 
 
 export default function MainPageFooter(){

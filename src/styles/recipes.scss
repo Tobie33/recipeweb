@@ -1,35 +1,36 @@
-#search-and-filter, #prev-and-next-button{
-  padding: 0 200px;
-}
-
-.page-buttons{
-  padding: 12.5px 25px;
-  font-size: 18px ;
-}
-
-#prev-and-next-button{
-  height: 54px;
-  #next-button {
-    float: right;
-  }
-}
-
-
-@media (min-width:576px) and (max-width: 992px) {
-  #search-and-filter, #prev-and-next-button {
+@media (max-width: 992px) {
+  #search-and-filter,
+  #prev-and-next-button {
     padding: 0 100px;
   }
 }
 
-#recipes{
-  padding: 0 100px;
-  row-gap: 40px;
-  .recipe-card {
-    a {
-      text-decoration: none;
+#search-and-filter, #prev-and-next-button{
+  padding: 0 200px;
+}
+
+#main-page{
+  #prev-and-next-button{
+    height: 54px;
+    .page-buttons {
+      padding: 12.5px 25px;
+      font-size: 18px;
     }
-    .card-header {
-      min-height: 75px;
+    #next-button {
+      float: right;
+    }
+  }
+  #recipes{
+    padding: 0 100px;
+    row-gap: 40px;
+    margin: 0 0 100px;
+    .recipe-card {
+      a {
+        text-decoration: none;
+      }
+      .card-header {
+        min-height: 75px;
+      }
     }
   }
 }

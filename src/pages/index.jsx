@@ -1,16 +1,16 @@
 import Image from "next/image"
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import Head from "next/head"
 import Link from "next/link"
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 export default function mainPage({recipes: {recipes}}) {
 
   return (
     <main id="main-page">
-    <Head>
-      <title>Main Page</title>
-    </Head>
+      <Head>
+        <title>Main Page</title>
+      </Head>
       <section className="pages text-center d-flex flex-column justify-content-center align-items-center">
         <h1>Spoonacular</h1>
         <h2 className="mt-5">Find all your favourite recipes from around the world</h2>
@@ -43,6 +43,8 @@ export default function mainPage({recipes: {recipes}}) {
 }
 
 export async function getStaticProps() {
+
+  // get 8 random recipes
   const res = await fetch(`https://api.spoonacular.com/recipes/random?number=8&apiKey=${process.env.apiKey}`)
   const recipes = await res.json()
 

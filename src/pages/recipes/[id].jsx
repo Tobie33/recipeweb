@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Head from "next/head"
 import Carousel from 'react-bootstrap/Carousel';
-import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Badge, Stack } from "react-bootstrap";
+import { useState } from "react";
 
 
 
@@ -16,14 +16,15 @@ export default function recipePage({recipe,instructions}){
     setIndex(selectedIndex);
   };
 
+  // tags for most diet options
   const tags =[
-    {name: 'vegan', tagName:''},
-    {name: 'glutenFree', tagName:''},
-    {name: 'vegetarian', tagName:''},
-    {name: 'veryHealthy', tagName:''},
-    {name: 'cheap', tagName:''},
-    {name: 'veryPopular', tagName:''},
-    {name: 'sustainable', tagName:''}
+    {name: 'vegan', tagName:'Vegan friendly!'},
+    {name: 'glutenFree', tagName:'Gluten Free!'},
+    {name: 'vegetarian', tagName:'Vegetarian friendly!'},
+    {name: 'veryHealthy', tagName:'Healthy Choice!'},
+    {name: 'cheap', tagName:'Cheap choice!'},
+    {name: 'veryPopular', tagName:'Popular Choice!'},
+    {name: 'sustainable', tagName:'Sustainable!'}
   ]
 
   return(
@@ -47,13 +48,14 @@ export default function recipePage({recipe,instructions}){
         </ListGroup>
       </Card>
       <Stack direction="horizontal" gap={2} id="tags" className="d-flex justify-content-center flex-wrap mt-3">
-        {recipe?.vegan === true && <Badge bg="success">Vegan friendly!</Badge>}
-        {recipe?.glutenFree === true && <Badge bg="success">Gluten Free!</Badge>}
-        {recipe?.vegetarian === true && <Badge bg="success">Vegetarian friendly!</Badge>}
-        {recipe?.veryHealthy === true && <Badge bg="success">Healthy Choice!</Badge>}
-        {recipe?.cheap === true && <Badge bg="success">Cheap choice</Badge>}
-        {recipe?.veryPopular === true && <Badge bg="success">Popular Choice</Badge>}
-        {recipe?.sustainable === true && <Badge bg="success">Sustainability</Badge>}
+        {tags.map((tag,index) => {
+          const name = tag.name
+          const tagName = tag.tagName
+          const status = recipe && recipe[`${name}`]
+
+          return status && <Badge key={index} bg="success">{tagName}</Badge>
+        }
+        )}
       </Stack>
       <Carousel data-bs-theme="dark" indicators={false} activeIndex={index} onSelect={handleSelect} slide={false} interval={null}
 id="steps" className="my-5">
