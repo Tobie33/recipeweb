@@ -17,6 +17,8 @@ export default function RecipesSearchPage({recipes :{results}}){
   const [diet, setDietValue] = useState(``)
   const [cuisine, setCuisineValue] = useState(``)
   const [page,setPage] = useState(1)
+  //check if user has performed a search
+  const [search,setSearch] = useState(false)
 
   // The diet and cuisine options since there's no API to grab all the options available
 
@@ -96,6 +98,7 @@ export default function RecipesSearchPage({recipes :{results}}){
                 <Button
                   type="submit"
                   variant="outline-success"
+                  onClick={() => setSearch(search === false ? true : true)}
                 >
                 Search</Button>
             </Link>
@@ -198,7 +201,7 @@ export default function RecipesSearchPage({recipes :{results}}){
           </Col>
         ))
         }
-        {(recipe !== "" && results?.length === 0 && diet === "" && cuisine === "") &&
+        {(results?.length === 0 && search === true) &&
           <div id="not-found-page" className='text-center'>
             <h3>Results not found! Try again</h3>
           </div>
@@ -220,7 +223,6 @@ export async function getServerSideProps({query}) {
   const offset = (number / recipesPerPage -1) * recipesPerPage
 
   const recipes = await getQueriedRecipes({query},recipesPerPage,offset)
-
 
   return {
     props: {
