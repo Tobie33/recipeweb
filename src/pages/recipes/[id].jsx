@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Badge, Stack } from "react-bootstrap";
 import { useState } from "react";
+import { getRecipe, getRecipeSteps } from "src/lib/getRecipe";
 
 export default function RecipePage({recipe,instructions}){
 
@@ -89,10 +90,8 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params: {id}}) {
 
-  const resRecipe = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.apiKey}`)
-  const resInstruction = await fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.apiKey}`)
-  const recipe = await resRecipe.json()
-  const instructions = await resInstruction.json()
+  const recipe = await getRecipe(id)
+  const instructions = await getRecipeSteps(id)
 
   return {
     props: {

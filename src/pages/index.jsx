@@ -4,6 +4,8 @@ import Link from "next/link"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
+import { getRandomRecipes } from "src/lib/getRecipes"
+
 export default function MainPage({recipes: {recipes}}) {
 
   return (
@@ -44,9 +46,7 @@ export default function MainPage({recipes: {recipes}}) {
 
 export async function getStaticProps() {
 
-  // get 8 random recipes
-  const res = await fetch(`https://api.spoonacular.com/recipes/random?number=8&apiKey=${process.env.apiKey}`)
-  const recipes = await res.json()
+  const recipes = await getRandomRecipes()
 
 
   return {

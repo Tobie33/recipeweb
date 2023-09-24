@@ -8,6 +8,7 @@ import Head from 'next/head'
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
+import { getQueriedRecipes } from 'src/lib/getRecipes';
 
 
 export default function RecipesSearchPage({recipes :{results}}){
@@ -207,17 +208,19 @@ export default function RecipesSearchPage({recipes :{results}}){
   )
 }
 
-export async function getServerSideProps({query:{query, diet, cuisine, page}}) {
+export async function getServerSideProps({query}) {
 
   //adjustable to show more or less recipes in each page
+
+  const page = query.page
   const recipesPerPage = 24
   let number = 0
   number = page ?  recipesPerPage * page : 24
 
   const offset = (number / recipesPerPage -1) * recipesPerPage
 
-  const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&query=${query}&addRecipeInformation=true&diet=${diet}&cuisine=${cuisine}&number=${recipesPerPage}&offset=${offset}`)
-  const recipes = await res.json()
+  const recipes = await getQueriedRecipes({query},recipesPerPage,offset)
+
 
   return {
     props: {
