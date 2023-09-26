@@ -4,9 +4,9 @@ import Link from "next/link"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-import { getRandomRecipes } from "src/lib/getRecipes"
+import { getRecipesForFrontPage } from "src/lib/getRecipes"
 
-export default function MainPage({recipes: {recipes}}) {
+export default function MainPage({recipes}) {
 
   return (
     <main id="main-page">
@@ -46,8 +46,7 @@ export default function MainPage({recipes: {recipes}}) {
 
 export async function getStaticProps() {
 
-  const recipes = await getRandomRecipes()
-
+  const recipes = await getRecipesForFrontPage()
 
   return {
     props: {

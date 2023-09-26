@@ -1,17 +1,41 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import Head from 'next/head'
+import Router from 'next/router'
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Row } from 'react-bootstrap';
-import Link from 'next/link';
-import Image from 'next/image';
-import Head from 'next/head'
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
+import React from 'react';
 import { getQueriedRecipes } from 'src/lib/getRecipes';
 
 
 export default function RecipesSearchPage({recipes :{results}}){
+
+  const [loading, setLoading] = React.useState(false);
+    React.useEffect(() => {
+      const start = () => {
+        console.log("start");
+        setLoading(true);
+      };
+      const end = () => {
+        console.log("finished");
+        setLoading(false);
+      };
+      Router.events.on("routeChangeStart", start);
+      Router.events.on("routeChangeComplete", end);
+      Router.events.on("routeChangeError", end);
+      return () => {
+        Router.events.off("routeChangeStart", start);
+        Router.events.off("routeChangeComplete", end);
+        Router.events.off("routeChangeError", end);
+      };
+    }, []);
+
+
 
   const [recipe, setRecipe] = useState(``)
   const [diet, setDietValue] = useState(``)
@@ -21,7 +45,6 @@ export default function RecipesSearchPage({recipes :{results}}){
   const [search,setSearch] = useState(false)
 
   // The diet and cuisine options since there's no API to grab all the options available
-
   const diets = [
     {name: 'Select a diet', value: 0},
     {name: 'Gluten Free', value: 1},
@@ -188,7 +211,7 @@ export default function RecipesSearchPage({recipes :{results}}){
             <Link href={`/recipes/${recipe.id}`}>
               <Card>
                 <Card.Header className="text-center" as="h5">{recipe.title}</Card.Header>
-                <Card.Body className='d-flex justify-content-center'>
+                <Card.Body className='d-flex justify-content-center al'>
                   <Image
                     src={recipe.image}
                     width={250}
@@ -201,7 +224,13 @@ export default function RecipesSearchPage({recipes :{results}}){
           </Col>
         ))
         }
-        {(results?.length === 0 && search === true) &&
+        {
+          loading ?
+          <div id="loading-page" className='text-center'>
+            <h3>Loading...</h3>
+          </div>
+          :
+        (results?.length === 0 && search === true) &&
           <div id="not-found-page" className='text-center'>
             <h3>Results not found! Try again</h3>
           </div>

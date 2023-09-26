@@ -57,7 +57,7 @@ export default function RecipePage({recipe,instructions}){
         )}
       </Stack>
       <Carousel data-bs-theme="dark" indicators={false} activeIndex={index} onSelect={handleSelect} slide={false} interval={null}
-id="steps" className="my-5">
+id="steps" className="my-5 d-flex justify-content-center">
         {instructions && instructions[0].steps.map((stage,idx) => (
           <Carousel.Item key={idx}>
             <h4>Step {stage.number}</h4>
@@ -82,6 +82,7 @@ id="steps" className="my-5">
 }
 
 export async function getStaticPaths(){
+
   return{
     paths:[],
     fallback:false
