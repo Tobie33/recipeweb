@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Head from "next/head"
+import {useRouter} from "next/router"
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -8,6 +9,8 @@ import { useState } from "react";
 import { getRecipe, getRecipeSteps } from "src/lib/getRecipe";
 
 export default function RecipePage({recipe,instructions}){
+
+  const router = useRouter()
 
   const [index, setIndex] = useState(0);
 
@@ -25,6 +28,8 @@ export default function RecipePage({recipe,instructions}){
     {name: 'veryPopular', tagName:'Popular Choice!'},
     {name: 'sustainable', tagName:'Sustainable!'}
   ]
+
+  if(router.isFallback) return <div id="main-page" className="text-center mt-3"><h3>Loading...</h3></div>
 
   return(
     <main id="recipe-card" className="d-flex flex-column justify-content-center align-items-center">
