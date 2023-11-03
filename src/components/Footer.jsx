@@ -20,8 +20,8 @@ export default function MainPageFooter(){
         <Link href="/">Spoonacular</Link>
         <Link href="/recipes">Recipes</Link>
         <div id="icons" className="d-flex">
-          <Link href="https://spoonacular.com/food-api" className="px-2"><FontAwesomeIcon icon={faLayerGroup} size="xl" style={{color: "#000000",}} /></Link>
-          <Link href="https://github.com/Tobie33/recipeweb" className="px-2"><FontAwesomeIcon icon={faGithub} size="xl" style={{color: "#3d6151",}} /></Link>
+          <Link href="https://spoonacular.com/food-api" className="px-2"><FontAwesomeIcon icon={faLayerGroup} size="xl" style={{color: "#ffffff",}} /></Link>
+          <Link href="https://github.com/Tobie33/recipeweb" className="px-2"><FontAwesomeIcon icon={faGithub} size="xl" style={{color: "#ffffff",}} /></Link>
         </div>
       </div>
       <Form id="footer-search-bar" className="d-flex" onSubmit={handleSubmit}>

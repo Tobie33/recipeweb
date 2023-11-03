@@ -13,9 +13,9 @@ export default function MainPage({recipes}) {
       <Head>
         <title>Main Page</title>
       </Head>
-      <section className="pages text-center d-flex flex-column justify-content-center align-items-center">
-        <h1>Spoonacular</h1>
-        <h2 className="mt-5">Find all your favourite recipes from around the world</h2>
+      <section id="topic-page" className="pages text-center d-flex flex-column justify-content-center align-items-center">
+        <h1 className="topic main-page-topic">Spoonacular</h1>
+        <h2 className="mt-5 topic main-page-topic">Find all your favourite recipes from around the world</h2>
       </section>
       <section className="pages" id="image-pages">
         <Row className=" image-block d-flex justify-content-center m-0">

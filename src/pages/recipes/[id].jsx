@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Badge, Stack } from "react-bootstrap";
 import { useState } from "react";
 import { getRecipe, getRecipeSteps } from "src/lib/getRecipe";
+import tags from "src/data/TagChoice";
 
 export default function RecipePage({recipe,instructions}){
 
@@ -18,16 +19,7 @@ export default function RecipePage({recipe,instructions}){
     setIndex(selectedIndex);
   };
 
-  // tags for most diet options
-  const tags =[
-    {name: 'vegan', tagName:'Vegan friendly!'},
-    {name: 'glutenFree', tagName:'Gluten Free!'},
-    {name: 'vegetarian', tagName:'Vegetarian friendly!'},
-    {name: 'veryHealthy', tagName:'Healthy Choice!'},
-    {name: 'cheap', tagName:'Cheap choice!'},
-    {name: 'veryPopular', tagName:'Popular Choice!'},
-    {name: 'sustainable', tagName:'Sustainable!'}
-  ]
+
 
   if(router.isFallback) return <div id="main-page" className="text-center mt-3"><h3>Loading...</h3></div>
 
@@ -36,7 +28,7 @@ export default function RecipePage({recipe,instructions}){
       <Head>
         <title>{recipe?.title}</title>
       </Head>
-      <h1 id="dish-name" className="mt-3">{recipe?.title}</h1>
+      <h2 id="dish-name" className="mt-3">{recipe?.title}</h2>
       <Image
         src={recipe?.image}
         width={500}

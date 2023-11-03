@@ -45,6 +45,7 @@ export default function MainPageNavbar() {
                 <Button
                   type="submit"
                   variant="outline-success"
+                  id="navbar-button"
                 >
                 Search</Button>
               </Link>

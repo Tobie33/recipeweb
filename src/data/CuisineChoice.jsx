@@ -1,0 +1,32 @@
+const cuisines = [
+  {name:'Select a cuisine'},
+  {name:'African'},
+  {name:'Asian'},
+  {name:'American'},
+  {name:'British'},
+  {name:'Cajun'},
+  {name:'Caribbean'},
+  {name:'Chinese'},
+  {name:'Eastern European'},
+  {name:'European'},
+  {name:'French'},
+  {name:'German'},
+  {name:'Greek'},
+  {name:'Indian'},
+  {name:'Irish'},
+  {name:'Italian'},
+  {name:'Japanese'},
+  {name:'Jewish'},
+  {name:'Korean'},
+  {name:'Latin American'},
+  {name:'Mediterranean'},
+  {name:'Mexican'},
+  {name:'Middle Eastern'},
+  {name:'Nordic'},
+  {name:'Southern'},
+  {name:'Spanish'},
+  {name:'Thai'},
+  {name:'Vietnamese'}
+]
+
+export default cuisines
