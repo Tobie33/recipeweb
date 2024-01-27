@@ -4,4 +4,4 @@ Many Thanks to Spoonacular who provided the APIs for this project: https://spoon
 
 Language used: Javascript
 
-Libraries/ Frameworks used: React, React Bootstrap, Bootstrap, Font Awesome, Nextjs
+Skills used: React, React Bootstrap, Bootstrap, Font Awesome, Nextjs
