@@ -1,6 +1,7 @@
 $footer-search-button-value: 15px;
-$footer-height: 225px;
-$navbar-height: 56px;
+$footer-height: 125px;
+$navbar-height: 100px;
+$greenish-color: #33B864;
 
 @media (max-width: 768px) {
   footer {
@@ -18,8 +19,12 @@ $navbar-height: 56px;
 // for all images in every page
 img {
   border-radius: 10%;
-  border: 2px solid olive;
+  border: 2px solid $greenish-color;
   object-fit: cover;
+}
+
+a{
+  text-decoration: none;
 }
 
 .topic{
@@ -30,17 +35,21 @@ h1{
   font-size: 60px;
 }
 
+.navbar-brand, .nav-link, #navbar-button{
+  color: $greenish-color !important;
+}
+
 .navbar {
-  background-color: rgba(0, 93, 6, 1) !important;
-  .navbar-brand{
-    color: #f6f6f6 ;
+  height:100px;
+  background-color: white !important;
+  font-family: Georgia !important;
+  font-size: 1.35em;
+  font-weight: 600;
+  #navbar-button {
+    border-color: $greenish-color;
   }
-  .nav-link {
-    color: #f6f6f6;
-  }
-  #navbar-button{
-    color: #f6f6f6;
-    border-color: #f6f6f6;
+  #navbar-button:hover {
+    color: #f6f6f6 !important;
   }
 }
 
@@ -49,22 +58,28 @@ h1{
     min-height: calc(100vh - $footer-height - $navbar-height);
     max-width: 100vw;
     #topic-page{
-      background: rgb(0, 93, 6);
-      background: linear-gradient(180deg, rgba(0, 93, 6, 1) 0%, rgba(75, 121, 9, 1) 35%, rgba(255, 255, 255, 1) 100%);
-      .main-page-topic{
-        color:#f6f6f6
+      height:350px;
+      #title-box{
+        width:80vw;
+        .main-page-topic{
+          font-family: Georgia !important;
+          color:$greenish-color;
+          font-weight: 800;
+          font-size: 60px;
+          text-transform: uppercase;
+        }
       }
     }
     .pages{
       min-height:500px;
-      margin-bottom: 200px;
+      margin-bottom: 100px;
       .image-block{
         row-gap:50px;
       }
     }
   }
   footer{
-    background-color: rgba(0, 93, 6, 1);
+    background-color: $greenish-color;
     height: $footer-height;
     a{
       color:whitesmoke;
@@ -73,6 +88,7 @@ h1{
     #footer-links{
       font-size: 1.2em;
       row-gap: 25px;
+      font-weight: 500;
     }
     #footer-search-bar{
       height:$footer-search-button-value * 4;
@@ -87,4 +103,37 @@ h1{
       }
     }
   }
+}
+
+.fade-in-image {
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

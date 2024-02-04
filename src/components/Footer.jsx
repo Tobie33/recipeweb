@@ -16,36 +16,14 @@ export default function MainPageFooter(){
 
   return(
     <footer className="d-flex align-items-center justify-content-around">
-      <div id="footer-links" className="d-flex flex-column align-items-center">
-        <Link href="/">Spoonacular</Link>
-        <Link href="/recipes">Recipes</Link>
-        <div id="icons" className="d-flex">
-          <Link href="https://spoonacular.com/food-api" className="px-2"><FontAwesomeIcon icon={faLayerGroup} size="xl" style={{color: "#ffffff",}} /></Link>
-          <Link href="https://github.com/Tobie33/recipeweb" className="px-2"><FontAwesomeIcon icon={faGithub} size="xl" style={{color: "#ffffff",}} /></Link>
+      <div id="footer-links" className="d-flex align-items-center">
+        <div className="d-flex">
+          <h2>Credit for Spoonacular for the API: </h2><Link href="https://spoonacular.com/food-api" className="px-2 pt-1"><FontAwesomeIcon icon={faLayerGroup} size="xl" style={{color: "#ffffff",}}/></Link>
+        </div>
+        <div className="d-flex">
+          <h2 className="ms-1">Github Depository:</h2><Link href="https://github.com/Tobie33/recipeweb" className="px-2 pt-1"><FontAwesomeIcon icon={faGithub} size="xl" style={{color: "#ffffff",}} /></Link>
         </div>
       </div>
-      <Form id="footer-search-bar" className="d-flex" onSubmit={handleSubmit}>
-        <Form.Control
-          type="text"
-          placeholder="Recipe"
-          className="me-2"
-          aria-label="Query"
-          onChange={(e) => setRecipe(e.target.value)}
-        />
-        <Link
-        href={{
-          pathname:'/recipes',
-          query:{
-            query: recipe}
-        }}>
-          <Button
-            type="submit"
-            variant="outline-success"
-            id="search-button"
-          >
-          Search</Button>
-        </Link>
-      </Form>
     </footer>
   )
 }

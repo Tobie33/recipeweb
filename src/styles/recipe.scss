@@ -13,17 +13,14 @@
         font-size: 1em;
       }
     }
-    #ingredients-and-equipments {
-      flex-direction:column;
-      .equipments {
-          margin-top: 10px;
-        }
-    }
   }
 }
+#dish-name{
+  font-size: 40px;
+  font-weight:400px;
+}
 
-#basic-info{
-  width:60%;
+.basic-info{
   border: 2px black solid;
 }
 #tags{
@@ -34,21 +31,20 @@
 }
 .carousel{
   width:70%;
-  min-height: 300px;
-  border: 5px solid olive;
+  min-height: 600px;
+  border: 5px solid #33B864;
   background-color: beige;
   border-radius:25px;
   .carousel-inner{
     width:80%;
     margin: 25px 0 ;
-    #ingredients-and-equipments{
-      display:flex;
-      .ingredients {
-        width:50%;
-      }
-      .equipments{
-        width:50%;
-      }
-    }
   }
+}
+.nav-tabs, .tab-content{
+  width:60%;
+}
+
+.ingredients, .equipment {
+  width: 200px;
+  height: 175px;
 }
