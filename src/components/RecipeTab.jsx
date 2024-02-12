@@ -137,9 +137,6 @@ export const RecipeTab = ({tabsContent:{parsedSummary, parsedInstruction, readyI
         </Card>
       </Tab>
       <Tab eventKey="ingredients" title="Ingredients">
-        <div className='mt-3'>
-          {parsedInstruction}
-        </div>
         <Card className="mt-3 basic-info">
           <Accordion flush>
             <Accordion.Item eventKey="0">
@@ -153,6 +150,9 @@ export const RecipeTab = ({tabsContent:{parsedSummary, parsedInstruction, readyI
             </Accordion.Item>
           </Accordion>
         </Card>
+        <div className='mt-3'>
+          {parsedInstruction}
+        </div>
       </Tab>
     </Tabs>
   );

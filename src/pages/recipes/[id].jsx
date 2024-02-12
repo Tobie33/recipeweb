@@ -55,7 +55,7 @@ export default function RecipePage({recipe ,instructions}){
         alt={recipe?.title}
         className="mt-3"
       />
-      <Stack direction="horizontal" gap={2} id="tags" className="d-flex justify-content-center flex-wrap mt-3">
+      <Stack direction="horizontal" gap={2} id="tags" className="d-flex justify-content-center flex-wrap my-3">
         {tags.map((tag,index) => {
           const name = tag.name
           const tagName = tag.tagName

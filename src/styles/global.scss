@@ -12,8 +12,13 @@ $greenish-color: #33B864;
   }
 }
 
+@font-face {
+  font-family: "Gentle";
+  src: url("font/MADE Gentle.otf") format('opentype');
+}
+
 *{
-  font-family: Verdana, sans-serif;
+  font-family: Gentle, sans-serif;
 }
 
 // for all images in every page
@@ -28,7 +33,7 @@ a{
 }
 
 .topic{
-  font-family: Georgia;
+  font-family: Gentle;
 }
 
 h1{
@@ -61,10 +66,8 @@ h1{
       height:350px;
       #title-box{
         width:80vw;
+        color: $greenish-color;
         .main-page-topic{
-          font-family: Georgia !important;
-          color:$greenish-color;
-          font-weight: 800;
           font-size: 60px;
           text-transform: uppercase;
         }
